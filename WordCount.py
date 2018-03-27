@@ -1,0 +1,5 @@
+x=str(raw_input())
+a=x.split()
+y=str(input())
+z=a.count(y)
+print(z)
