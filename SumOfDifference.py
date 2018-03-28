@@ -13,4 +13,5 @@ while cnt<=x:
 	sum2=sum2+(cnt*cnt)
 	cnt=cnt+1
 z=sum1-sum2
-print(z)
+print("The answer: "z)
+
