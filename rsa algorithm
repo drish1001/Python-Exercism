@@ -1,0 +1,41 @@
+def encrypt(text, key):
+    j=0
+    key_lll=[]
+
+    for i in key:
+        if i.isupper():
+            key_lll.append(ord(i)-65)
+        else:
+            key_lll.append(ord(i)-97)
+
+    key_len = len(key)
+    cipher=''
+    #65-A 90-Z 97-a 122-z
+
+    for i in text:
+        l=ord(i)
+        if(l>90 or l<65) and (l>122 or l<97):
+        #if i == " ":
+            cipher+=i
+        elif i.isupper():
+            value = (((ord(i) - 65 + key_lll[j % key_len] - 65) % 26) + 65)
+            j+=1
+            cipher=cipher+chr(value)
+        elif i.islower():
+            value = (((ord(i) - 97 + key_lll[j % key_len] - 65) % 26) + 65)
+            j+=1
+            cipher=cipher+chr(value)
+
+        # else:
+        #     value=(((ord(i)-65 + key_lll[j%key_len]-65)%26)+65)
+        #     j+=1
+        #     cipher+=chr(value)
+
+    return cipher
+#text=HELLO SAUMYA
+#key = APPLE
+text=input("Enter The Statement:")
+key=input("Enter Key:")
+print(encrypt(text,key))
+
+
